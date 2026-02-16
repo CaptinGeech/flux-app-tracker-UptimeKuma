@@ -32,9 +32,9 @@ I would set the path to `/docker/uptime/push-scripts/flux-app-tracker`
 The data files it uses and saves will then be places in a nested `data/` directory.
 
 ## copy the script.
-
-wget -O /docker/uptime/push-scripts/flux-app-tracker/flux-app-tracker.py https://example.com/script.sh
-
+```
+wget -P /docker/uptime/push-scripts/flux-app-tracker/flux-app-tracker.py https://github.com/CaptinGeech/flux-app-running-monitor-UptimeKuma/blob/main/flux-app-tracker.py
+```
 
 ## Update your script
 After you copy your script, you need to edit the file so you can update to use your UptimeKuma url..
