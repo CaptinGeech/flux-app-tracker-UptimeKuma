@@ -55,5 +55,5 @@ This will be in a pending state until you set up a crontab.
 ## Crontab
 Now back in tour terminal, do `crontab -e` and add a line at the bottom to run your script.  For example
 ```
-*/5 * * * * /usr/bin/python3 /docker/uptime/push-scripts/flux-app-tracker/flux-app-tracker.py 192.168.1.10 16127
+*/5 * * * * /usr/bin/python3 /docker/uptime/push-scripts/flux-app-tracker/flux-app-tracker.py 192.168.1.10 16127 KUMA_PUSH_TOKEN
 ```
