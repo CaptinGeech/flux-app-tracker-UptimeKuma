@@ -3,6 +3,7 @@ import json
 import os
 import time
 import sys
+from pathlib import Path
 
 KUMA_DOMAIN = "http://localhost:3001"
 
@@ -33,13 +34,14 @@ def main():
         return
 
     # Load previous state and convert to SET
-    os.makedirs("data", exist_ok=True)
-    if os.path.exists(f"data/{state_file}"):
-        with open(f"data/{state_file}", "r") as f:
+    script_path = f"{Path(__file__).resolve().parent}/data"
+    os.makedirs(script_path, exist_ok=True)
+    if os.path.exists(f"{script_path}/{state_file}"):
+        with open(f"{script_path}/{state_file}", "r") as f:
             last_apps = set(json.load(f))
     else:
         # First run: Save and exit
-        with open(f"data/{state_file}", "w") as f:
+        with open(f"{script_path}/{state_file}", "w") as f:
             json.dump(list(current_apps), f)
         requests.get(f"{kuma_push_url}?msg=Initial+setup+for+{target_ip}&status=up")
         return
@@ -66,7 +68,7 @@ def main():
         requests.get(f"{kuma_push_url}?msg={msg.replace(' ', '+')}&status=up")
 
         # Update state file for next comparison
-        with open(f"data/{state_file}", "w") as f:
+        with open(f"{script_path}/{state_file}", "w") as f:
             json.dump(list(current_apps), f)
 
 if __name__ == "__main__":

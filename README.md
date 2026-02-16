@@ -1,4 +1,4 @@
-# flux-app-running-monitor-UptimeKuma
+# flux-app-tracker-UptimeKuma
 A push monitor script that will check an ip:port of a flux node and store all runnigs application names to allow Uptime Kuma to alert you when one is added or removed via push monitoring.
 
 ## How it works.
@@ -33,7 +33,7 @@ The data files it uses and saves will then be places in a nested `data/` directo
 
 ## copy the script.
 ```
-wget -P /docker/uptime/push-scripts/flux-app-tracker/flux-app-tracker.py https://github.com/CaptinGeech/flux-app-running-monitor-UptimeKuma/blob/main/flux-app-tracker.py
+wget -P /docker/uptime/push-scripts/flux-app-tracker/ https://raw.githubusercontent.com/CaptinGeech/flux-app-tracker-UptimeKuma/refs/heads/main/flux-app-tracker.py
 ```
 
 ## Update your script
